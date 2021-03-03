@@ -28,10 +28,8 @@ function hello() {
       }
   })
   document.addEventListener("DOMContentLoaded", ()=>{
-      document.querySelectorAll('.c').forEach((b)=>{
-b.onclick= ()=>{
-    document.querySelector('#hola').style.color = b.dataset.color
-}
-      })
+      document.querySelector('select').onchange = ()=>{
+          document.querySelector('#hola').style.color = this.value
+      }
 
   })
