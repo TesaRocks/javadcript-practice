@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Currencies</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("https://api.exchangeratesapi.io/latest?base=USD")
+          .then((response) => response.json())
+          .then((data) => {
+            const rate = data.rates.EUR;
+            document.querySelector("body").innerHTML = rate.toFixed(3);
+          });
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
