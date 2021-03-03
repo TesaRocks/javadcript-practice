@@ -1,13 +1,15 @@
 function hello() {
     alert("hello tes");
   }
-  let counter = 0;
+  if(!localStorage.getItem('counter')){
+  localStorage.setItem('counter',10)
+  }
   function count() {
+    let counter = localStorage.getItem("counter")
     counter++;
     document.querySelector("h2").innerHTML = counter;
-    if (counter % 10 === 0) {
-      alert(`count is now ${counter}`);
-    }
+    localStorage.setItem('counter',counter)
+
   }
   function changeName() {
     const heading = document.querySelector("h1");
@@ -17,9 +19,12 @@ function hello() {
       heading.innerHTML = "hello world";
     }
   }
+
   document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("h2").innerHTML = localStorage.getItem("counter")
     document.querySelector("button").onclick = hello;
-  });
+    document.querySelector("#c").onclick = count
+      });
 
   document.addEventListener("DOMContentLoaded", ()=>{
       document.querySelector('form').onsubmit = ()=>{
